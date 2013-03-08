@@ -39,6 +39,7 @@
 			that.$oBtn = $foot.find('.pb-ok');
 			that.$pb.appendTo(document.body);
 			that.opts = opts;
+			that.offsetHeight = $head.outerHeight()+$foot.outerHeight();
 
 			that._bindEvent();
 			that._setPbZindex();
@@ -46,9 +47,14 @@
 			that.setContent(opts.content);
 			opts.drag && that._setDrag();
 			opts.mask && that._setMask();
-			opts.resize && that.$pb.resizable({onResize:function() {
-				that.$cont.css('height', that.$pb.innerHeight()-that.$head.outerHeight()-that.$foot.outerHeight() + 'px');
-			}});
+			opts.resize && that.$pb.resizable({
+				onResize:function() {
+					that.$cont.height(that.$pb.innerHeight() - that.offsetHeight);
+				}, 
+				onStopResize:function() {
+					that.$cont.height(that.$pb.innerHeight() - that.offsetHeight);
+				}
+			});
 			!opts.fixed && that.$pb.css('position','absolute');
 			that.setPos(opts.top, opts.left);
 			purebox.list[opts.id] = that;
