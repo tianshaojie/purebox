@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="stylesheets/purebox/tooltips-arrow.css"/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/purebox/purebox-metro.css"/>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>purebox by purer</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>purebox</h1>
+        <h2>一个简单精致的jQuery弹出层插件</h2>
+        <a href="https://github.com/purer/purebox" class="button" target="_blank"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h3>1. 简单调用，两种方式，工具集或者包装集</h3>
+<pre><code>​$('#purebox').click(function() {
+    $.pb({
+        id: 'purebox',
+        title: '标题',
+        content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。'
+    });
+});</code></pre>
+<pre><code>​​$('#purebox').pb({
+    id: 'purebox',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。'
+});</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox">purebox</a>
+
+		 <h3>2. 是否拖拽</h3>
+<pre><code>$('#purebox-drag-true').pb({
+    id: 'purebox-drag-true',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+    drag: true
+});
+</code></pre>
+		<a class="pb-button pb-bluebtn" id="purebox-drag-true">purebox-drag-true</a>
+<pre><code>$('#purebox-drag-false').pb({
+    id: 'purebox-drag-false',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+    drag: false
+});
+</code></pre>
+		<a class="pb-button pb-bluebtn" id="purebox-drag-false">purebox-drag-false</a>
+
+		 <h3>3. 是否遮罩显示</h3>
+<pre><code>$('#purebox-mask-true').pb({
+    id: 'purebox-mask-true',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+    mask: true
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-mask-true">purebox-mask-true</a>
+<pre><code>$('#purebox-mask-false').pb({
+    id: 'purebox-mask-false',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+    mask: false
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-mask-false">purebox-mask-false</a>
+
+		 <h3>4. 是否静止定位</h3>
+<pre><code>$('#purebox-fixed-true').pb({
+    id: 'idialog',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+    fixed: true
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-fixed-true">purebox-fixed-true</a>
+<pre><code>$('#purebox-fixed-false').pb({
+    id: 'idialog',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+    fixed: false
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-fixed-false">purebox-fixed-false</a>
+
+		 <h3>5. 是否可以调节尺寸</h3>
+<pre><code>$('#purebox-resize-true').pb({
+    id: 'purebox-resize-true',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+    resize: true
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-resize-true">purebox-resize-true</a>
+<pre><code>$('#purebox-resize-false').pb({
+    id: 'purebox-resize-false',
+    title: '标题',
+    content: '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+    resize: false
+});
+</code></pre>
+		<a class="pb-button pb-bluebtn" id="purebox-resize-false">purebox-resize-false</a>
+
+		 <h3>6. 自定义标题栏，按钮栏，按钮</h3>
+<pre><code>$('#purebox-no-head').pb({
+    id: 'purebox-no-head',
+    title: 'purebox-no-head',
+    head: false,
+    content: $('#show')
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-no-head">purebox-no-head</a>
+<pre><code>$('#purebox-no-xbtn').pb({
+    id: 'purebox-no-xbtn',
+    title: 'purebox-no-xbtn',
+    xBtn: false,
+    content: $('#show')
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-no-xbtn">purebox-no-xbtn</a>
+<pre><code>$('#purebox-no-foot').pb({
+    id: 'purebox-no-foot',
+    title: 'purebox-no-foot',
+    foot: false,
+    content: $('#show')
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-no-foot">purebox-no-foot</a>
+<pre><code>$('#purebox-no-cancelBtn').pb({
+    id: 'purebox-no-foot',
+    title: 'purebox-no-foot',
+    cBtn: false,
+    content: $('#show')
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-no-cancelBtn">purebox-no-cancelBtn</a>
+
+		 <h3>7. 按钮回调事件</h3>
+<pre><code>$('#purebox-onClose').pb({
+    id: 'purebox-onClose',
+    title: 'purebox-onClose',
+    content: $('#show'),
+    onClose: onClose
+});
+function onClose() {
+    alert('close');
+}
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-onClose">purebox-onClose</a>
+<pre><code>$('#purebox-onOk').pb({
+    id: 'purebox-onOk',
+    title: 'purebox-onOk',
+    content: $('#show'),
+    onOk: onOk
+});
+function onOk() {
+    alert('ok');
+}
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-onOk">purebox-onOk</a>
+<pre><code>$('#purebox-onCancel').pb({
+    id: 'purebox-onCancel',
+    title: 'purebox-onCancel',
+    content: $('#show'),
+    onCancel: onCancel
+});
+function onCancel() {
+    alert('cancel');
+}
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-onCancel">purebox-onCancel</a>
+
+		 <h3>8. 提示框和确认框</h3>
+<pre><code>$('#purebox-alert').click(function() {
+    $.pb.alert("好雨知时节， 当春乃发生。<br>随风潜入夜， 润物细无声。",
+    function() {
+        alert("alert");
+    });
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-alert">purebox-alerte</a>
+<pre><code>$('#purebox-confirm').click(function() {
+    $.pb.confirm("好雨知时节， 当春乃发生。",
+    function() {
+        alert("confirmed");
+    });
+});
+</code></pre>
+		 <a class="pb-button pb-bluebtn" id="purebox-confirm">purebox-confirm</a>
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/purer/purebox/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/purer/purebox/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+          <p class="repo-owner"><a href="https://github.com/purer/purebox"></a> is maintained by <a href="https://github.com/purer" target="_blank">purer</a>.</p>
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+	<script src="javascripts/jquery.js"></script>
+	<script src="javascripts/jquery.resizable.js"></script>
+	<script src="javascripts/jquery.purebox.js"></script>
+	<script src="javascripts/main.js"></script>
+  </body>
+</html>
