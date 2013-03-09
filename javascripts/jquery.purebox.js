@@ -21,10 +21,10 @@
 		_init : function(options) {
 			var opts = $.extend({}, purebox.defaults, options || {}),
 				template = ['<div id="',opts.id,'" class="pb">',
-				           opts.head ? ('<div class="pb-hd">' + (opts.xBtn ? '<a class="pb-close">\u2715</a>' : '') + '<span class="pb-title">'+opts.title+'</span></div>') : '',
-				           '<div class="pb-cont"></div>',
-			               opts.foot ? ('<div class="pb-ft">'+(opts.cBtn ? '<a class="pb-btn pb-cancel">\u53d6\u6d88</a>' : '') + '<a class="pb-btn pb-ok">\u786e\u5b9a</a></div>') : '',
-			               '</div>'].join(''),
+				           opts.head ? ('<div class="pb-hd">' + (opts.xBtn ? '<a class="pb-x">\u2715</a>' : '') + '<span class="pb-title">'+opts.title+'</span></div>') : '',
+				           '<div class="pb-bd"><div class="pb-ct"></div>',
+			               opts.foot ? ('<div class="pb-ft">'+(opts.cBtn ? '<a class="pb-btn pb-cl">\u53d6\u6d88</a>' : '') + '<a class="pb-btn pb-ok">\u786e\u5b9a</a></div>') : '',
+			               '</div></div>'].join(''),
 			    $pb = $(template),
 				$head = $pb.find('.pb-hd'),
 				$foot = $pb.find('.pb-ft'),
@@ -33,9 +33,9 @@
 			that.$pb = $pb,
 			that.$head = $head;
 			that.$foot = $foot;
-			that.$xBtn = $head.find('.pb-close');
-			that.$cont = $pb.find('.pb-cont');
-			that.$cBtn = $foot.find('.pb-cancel');
+			that.$xBtn = $head.find('.pb-x');
+			that.$cont = $pb.find('.pb-ct');
+			that.$cBtn = $foot.find('.pb-cl');
 			that.$oBtn = $foot.find('.pb-ok');
 			that.$pb.appendTo(document.body);
 			that.opts = opts;
@@ -48,6 +48,7 @@
 			opts.drag && that._setDrag();
 			opts.mask && that._setMask();
 			opts.resize && that.$pb.resizable({
+				handles: "e, s, se",
 				onResize:function() {
 					that.$cont.height(that.$pb.innerHeight() - that.offsetHeight);
 				}, 

@@ -10,9 +10,9 @@ a:hover {
     border: 10px solid rgba(0,0,0,0.4);
     border-radius: 6px; 
 	z-index: 2209;
-	left: 400px; 
-	top: 10px; 
-	width: 400px;
+	left: 50px; 
+	top: 40px; 
+	width: 300px;
 	font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";
     font-size: 13px;
 	color: #515151;
@@ -27,53 +27,38 @@ a:hover {
 	font-weight:bold;
 	padding-left:5px;
 }
-.pb .pb-close {
+.pb .pb-x {
 	font-weight:bold;
 	height:15px;
 	width:15px;
 	line-height:24px;
 	float:right;
 }
-.pb .pb-close:hover {
+.pb .pb-x:hover {
 	color:red;
 	cursor:pointer;
 }
-.pb .pb-cont {
-	border: solid #DDDDDD 1px;
+/*body*/
+.pb .pb-bd {
+	width:100%;
+	height:100%;
+}
+/*content*/
+.pb .pb-ct {
+	height: 80px;
+	/*text-indent:2em;*/
+	overflow-y: auto;
+	background-color: #F6F6F6;
 	border-top: none;
 	border-bottom: none;
-	height: 100px;
-	overflow-y: auto;
 }
+/*foot*/
 .pb .pb-ft {
-	background: #F0F0F0;
-	border: solid #DDDDDD 1px;
+	background-color: #F6F6F6;
+	border-top: 1px solid #DADEE5;
 	height: 31px;
 	line-height:25px;
 }
-/*inline-block元素设置高度，是指加上内边距和边框的高度
-button, .buttoon {
-    background-color: #CCCCCC;
-    border: 1px solid transparent;
-    color: #353535;
-    cursor: pointer;
-    display: inline-block;
-    height: 28px;
-    margin: 2px 3px 2px 3px;
-    min-width: 60px;
-    padding: 0;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-	font-weight: bold;
-	float:right;
-}
-.pb-ok-btn {
-	background-color: #5c75a9 !important;
-	color: #FFFFFF;
-    white-space: nowrap;
-}*/
-
 .pb a.pb-btn {
     cursor: pointer;
 	display: inline-block;
@@ -84,7 +69,6 @@ button, .buttoon {
 	float:right;
 	margin: 2px 3px;
 }
-
 .pb a.pb-ok {
     background-color: #6C83B3;
     border: 1px solid #29447E;
@@ -96,14 +80,13 @@ button, .buttoon {
     border: 1px solid #29447E;
     color: #FFFFFF;
 }
-
-.pb a.pb-cancel {
+.pb a.pb-cl {
     background-color: #F6F6F6;
     border: 1px solid #E4E5E7;
     border-radius: 2px 2px 2px 2px;
     color: #000000;
     cursor: pointer;
 }
-.pb a.pb-cancel:hover {
+.pb a.pb-cl:hover {
     color: #515151;
 }

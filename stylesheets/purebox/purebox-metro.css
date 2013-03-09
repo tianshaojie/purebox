@@ -7,19 +7,20 @@ a:hover {
 	position: fixed;
 	text-align:left;
 	border: 2px solid #5CB0DF;
+	font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";
+    font-size: 13px;
+	color: #515151;
 	/*extended
 	border-radius: 4px 4px 4px 4px;
 	box-shadow: 0 0 4px 2px #848484;
 	*/
 	/*dynamic*/
 	z-index: 2209;
-	left: 400px;
-	top: 10px;
+	left: 50px; 
+	top: 40px; 
 	width: 300px;
-	font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";
-    font-size: 13px;
-	color: #515151;
 }
+/*head*/
 .pb .pb-hd {
 	font-size: 14px;
 	background-color: #5CB0DF;
@@ -30,7 +31,7 @@ a:hover {
 	font-weight:bold;
 	padding-left:5px;
 }
-.pb .pb-close {
+.pb .pb-x {
 	font-weight:bold;
 	color: #FFFFFF;
 	height:15px;
@@ -39,10 +40,31 @@ a:hover {
 	float:right;
 	padding-left:5px;
 }
-.pb .pb-close:hover {
+.pb .pb-x:hover {
 	color:red;
 	cursor:pointer;
 }
+/*body*/
+.pb .pb-bd {
+	width:100%;
+	height:100%;
+}
+/*content*/
+.pb .pb-ct {
+	height: 80px;
+	/*text-indent:2em;*/
+	overflow-y: auto;
+	background-color: #F6F6F6;
+}
+/*foot*/
+.pb .pb-ft {
+	background-color: #F6F6F6;
+	border-top: 1px solid #DADEE5;
+	height: 31px;
+	line-height:25px;
+}
+
+/*
 .pb .pb-cont {
 	height: 150px;
 	overflow-y: auto;
@@ -54,6 +76,8 @@ a:hover {
 	height: 31px;
 	line-height:25px;
 }
+*/
+
 .pb a.pb-btn {
     cursor: pointer;
 	display: inline-block;
@@ -75,13 +99,13 @@ a:hover {
     border: 1px solid #50A2D1;
     color: #FFFFFF;
 }
-.pb a.pb-cancel {
+.pb a.pb-cl {
     background-color: #F6F6F6;
     border: 1px solid #E4E5E7;
     border-radius: 2px 2px 2px 2px;
     color: #000000;
     cursor: pointer;
 }
-.pb a.pb-cancel:hover {
+.pb a.pb-cl:hover {
     color: #515151;
 }
