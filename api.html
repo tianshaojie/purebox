@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>purebox</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content=""><!-- Le styles -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="css/purebox-metro.css" rel="stylesheet" id="skin">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> <!-- Le fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span><span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="index.html">purebox</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class=""><a href="example.html">Examples</a></li>
+						<li class="active"><a href="api.html">API</a></li>
+						<li class=""><a href="skin.html">Skin</a></li>
+						<li class=""><a href="about.html">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container"><!-- Docs nav -->
+		<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav">
+					<li><a href="#purebox-invoke"><i class="icon-chevron-right"></i>1. 用法示例</a></li>
+					<li><a href="#purebox-options"><i class="icon-chevron-right"></i>2. 配置参数</a></li>
+					<li><a href="#purebox-extends"><i class="icon-chevron-right"></i>3. 扩展方法</a></li>
+				</ul>
+			</div>
+
+			<div class="span9"><!-- Download -->
+				<section id="purebox-invoke">
+					<div class="page-header">
+						<h4>1. 用法示例</h4>
+					</div>
+					
+<pre class="prettyprint linenums">
+&lt;button class="btn btn-primary" id="purebox"&gtpurebox&lt;/button&gt
+</pre>
+<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox">简单调用</a>
+					</div>
+<pre class="prettyprint linenums">
+/*jQuery工具集调用方式*/
+​$('#purebox').click(function() {
+	$.pb({
+		id : 'purebox',
+		title : '标题',
+		content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。'
+	});
+});
+
+/*jQuery包装集调用方式*/
+​$('#purebox').pb({
+	id : 'purebox',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。'
+});
+</pre>
+				</section>
+
+				<section id="purebox-options">
+					<div class="page-header">
+						<h4>2. 配置参数</h4>
+					</div>
+					<table class="table table-bordered table-striped">
+					  <thead>
+					   <tr>
+						 <th style="width: 100px;">名称</th>
+						 <th style="width: 50px;">类型</th>
+						 <th style="width: 50px;">默认值</th>
+						 <th>描述</th>
+					   </tr>
+					  </thead>
+					  <tbody>
+					   <tr>
+						 <td><code>title</code></td>
+						 <td>String</td>
+						 <td>'标题'</td>
+						 <td>标题内容。</td>
+					   </tr>
+					   <tr>
+						 <td><code>content</code></td>
+						 <td>String<br>HTMLElement<br>jQeury Obj</td>
+						 <td>''</td>
+						 <td>消息内容。<br>如果传入的是HTMLElement类型，如果是隐藏元素会给其设置display:block以显示该元素，其他属性与绑定的事件都会完整保留，对话框关闭后此元素又将恢复原来的display属性，并且重新插入原文档所在位置。</td>
+					   </tr>
+
+					   <tr>
+						 <td><code>width</code></td>
+						 <td>Number</td>
+						 <td>'auto'</td>
+						 <td>设置弹出层内容区宽度。</td>
+					   </tr>
+					   <tr>
+						 <td><code>height</code></td>
+						 <td>Number</td>
+						 <td>'auto'</td>
+						 <td>设置弹出层内容区高度。</td>
+					   </tr>
+					   <tr>
+						 <td><code>top</code></td>
+						 <td>Number</td>
+						 <td>'c'</td>
+						 <td>相对于可视区域的X轴的坐标。默认居中。</td>
+					   </tr>
+					   <tr>
+						 <td><code>left</code></td>
+						 <td>Number</td>
+						 <td>'c'</td>
+						 <td>相对于可视区域的Y轴的坐标。默认居中。</td>
+					   </tr>
+
+					   <tr>
+						 <td><code>fixed</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否开启静止定位。</td>
+					   </tr>
+					   <tr>
+						 <td><code>drag</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否允许拖拽。</td>
+					   </tr>
+					   <tr>
+						 <td><code>mask</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否开启遮罩。</td>
+					   </tr>
+					   <tr>
+						 <td><code>resize</code></td>
+						 <td>Boolean</td>
+						 <td>false</td>
+						 <td>是否允许调节尺寸。需要引入<code>jquery.resizable.js</code>。</td>
+					   </tr>
+
+					   <tr>
+						 <td><code>head</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否显示标题栏。</td>
+					   </tr>
+					   <tr>
+						 <td><code>foot</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否显示按钮栏。</td>
+					   </tr>
+					   <tr>
+						 <td><code>xBtn</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否显示关闭按钮。</td>
+					   </tr>
+					   <tr>
+						 <td><code>cBtn</code></td>
+						 <td>Boolean</td>
+						 <td>true</td>
+						 <td>是否显示取消按钮。</td>
+					   </tr>
+
+					   <tr>
+						 <td><code>onClose</code></td>
+						 <td>Function</td>
+						 <td>null</td>
+						 <td>关闭按钮回调函数。</td>
+					   </tr>
+					   <tr>
+						 <td><code>onOk</code></td>
+						 <td>Function</td>
+						 <td>null</td>
+						 <td>确定按钮回调函数。</td>
+					   </tr>
+					   <tr>
+						 <td><code>onCancel</code></td>
+						 <td>Function</td>
+						 <td>null</td>
+						 <td>取消按钮回调函数。</td>
+					   </tr>
+					  </tbody>
+					</table>
+				</section>
+
+				<section id="purebox-extends">
+					<div class="page-header">
+						<h4>3. 扩展方法</h4>
+					</div>
+					<table class="table table-bordered table-striped">
+					  <thead>
+					   <tr>
+						 <th style="width: 100px;">名称</th>
+						 <th style="width: 50px;">参数</th>
+						 <th>描述</th>
+					   </tr>
+					  </thead>
+					  <tbody>
+					   <tr>
+						 <td><code>resize()</code></td>
+						 <td>width, height</td>
+						 <td>使用已实例的弹出层对象，重新设定其大小。</td>
+					   </tr>
+					   <tr>
+						 <td><code>setPos()</code></td>
+						 <td>top, left</td>
+						 <td>使用已实例的弹出层对象，重新设置位置</td>
+					   </tr>
+
+					   <tr>
+						 <td><code>center()</code></td>
+						 <td></td>
+						 <td>设置居中。</td>
+					   </tr>
+					   <tr>
+						 <td><code>setContent</code></td>
+						 <td>String<br>HTMLElement<br>jQeury Obj</td>
+						 <td>设置弹出层内容区高度。</td>
+					   </tr>
+					   <tr>
+						 <td><code>dispose()</code></td>
+						 <td>String<br>HTMLElement<br>jQeury Obj</td>
+						 <td>销毁对话框，如果传入的是HTMLElement或jQeury类型，对话框销毁后此元素将重新插入原文档所在位置。</td>
+					   </tr>
+					  </tbody>
+					</table>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			Designed and build by <a href="https://github.com/tianshaojie" target="_blank">@tianshaojie</a>
+			<p><a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a></p>
+		</div>
+	</footer>
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-transition.js"></script>
+	<script src="js/bootstrap-alert.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-dropdown.js"></script>
+	<script src="js/bootstrap-scrollspy.js"></script>
+	<script src="js/bootstrap-tab.js"></script>
+	<script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/bootstrap-popover.js"></script>
+	<script src="js/bootstrap-button.js"></script>
+	<script src="js/bootstrap-collapse.js"></script>
+	<script src="js/bootstrap-carousel.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
+	<script src="js/bootstrap-affix.js"></script>
+	<script src="js/holder/holder.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/application.js"></script>
+	
+	<script src="js/jquery.purebox.js"></script>
+	<script src="js/jquery.resizable.js"></script>
+</body>
+</html>

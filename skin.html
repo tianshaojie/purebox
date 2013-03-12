@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>purebox</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content=""><!-- Le styles -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="css/purebox-metro.css" rel="stylesheet" id="skin">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> <!-- Le fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+
+<style>
+.pb-fb {
+	position: fixed;
+	text-align:left;
+	background-color: #ffffff;
+    background-clip: padding-box;
+    border: 10px solid rgba(0,0,0,0.4);
+    border-radius: 6px; 
+	z-index: 2209;
+	left: 50px; 
+	top: 40px; 
+	width: 285px;
+	font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";
+    font-size: 13px;
+	color: #515151;
+}
+.pb-fb .pb-hd {
+	font-size: 14px;
+	background-color: #6C83B3;
+	color: #FFFFFF;
+	cursor: move;
+	height: 25px;
+	line-height:24px;
+	font-weight:bold;
+	padding-left:5px;
+}
+.pb-fb .pb-x {
+	font-weight:bold;
+	height:15px;
+	width:15px;
+	line-height:24px;
+	float:right;
+}
+.pb-fb .pb-x:hover {
+	color:red;
+	cursor:pointer;
+}
+/*body*/
+.pb-fb .pb-bd {
+	width:100%;
+	height:100%;
+}
+/*content*/
+.pb-fb .pb-ct {
+	height: 80px;
+	/*text-indent:2em;*/
+	overflow-y: auto;
+	background-color: #F6F6F6;
+	border-top: none;
+	border-bottom: none;
+}
+/*foot*/
+.pb-fb .pb-ft {
+	background-color: #F6F6F6;
+	border-top: 1px solid #DADEE5;
+	height: 31px;
+	line-height:25px;
+}
+.pb-fb a.pb-btn {
+    cursor: pointer;
+	display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 10px;
+    padding: 0 20px;
+	float:right;
+	margin: 2px 3px;
+}
+.pb-fb a.pb-ok {
+    background-color: #6C83B3;
+    border: 1px solid #29447E;
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+}
+.pb-fb a.pb-ok:hover {
+    background-color: #5C75A9;
+    border: 1px solid #29447E;
+    color: #FFFFFF;
+}
+.pb-fb a.pb-cl {
+    background-color: #F6F6F6;
+    border: 1px solid #E4E5E7;
+    border-radius: 2px 2px 2px 2px;
+    color: #000000;
+    cursor: pointer;
+}
+.pb-fb a.pb-cl:hover {
+    color: #515151;
+}
+</style>
+
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span><span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="index.html">purebox</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class=""><a href="example.html">Examples</a></li>
+						<li class=""><a href="api.html">API</a></li>
+						<li class="active"><a href="skin.html">Skin</a></li>
+						<li class=""><a href="about.html">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container"><!-- Docs nav -->
+		<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav">
+					<li><a href="#purebox-invoke"><i class="icon-chevron-right"></i>1. 弹出层结构</a></li>
+					<li><a href="#purebox-options"><i class="icon-chevron-right"></i>2. 自定义样式</a></li>
+				</ul>
+			</div>
+
+			<div class="span9"><!-- Download -->
+				<section id="purebox-invoke">
+					<div class="page-header">
+						<h4>1. 弹出层静态HTML结构</h4>
+					</div>
+					
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<div class="pb" style="position:static">
+							<div class="pb-hd">
+								<a class="pb-x">&#10005</a><span>标题</span>
+							</div>
+							<div class="pb-bd">
+								<div class="pb-ct">
+									<div style="text-align:center;padding: 20px 10px 0;">好雨知时节， 当春乃发生。<br>随风潜入夜， 润物细无声。</div>
+								</div>
+								<div class="pb-ft">
+									<a class="pb-btn pb-cl">取消</a><a class="pb-btn pb-ok">确定</a>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="pb-fb" style="position:static; display:inline-block;">
+							<div class="pb-hd">
+								<a class="pb-x">&#10005</a><span>标题</span>
+							</div>
+							<div class="pb-bd">
+								<div class="pb-ct">
+									<div style="text-align:center;padding: 20px 10px 0;">好雨知时节， 当春乃发生。<br>随风潜入夜， 润物细无声。</div>
+								</div>
+								<div class="pb-ft">
+									<a class="pb-btn pb-cl">取消</a><a class="pb-btn pb-ok">确定</a>
+								</div>
+							</div>
+						</div>
+					</div>
+<pre class="prettyprint linenums">
+&lt;div class="pb"&gt
+	&lt;div class="pb-hd"&gt
+		&lt;a class="pb-x"&gt&#10005&lt;/a&gt&lt;span&gt标题&lt;/span&gt
+	&lt;/div&gt
+	&lt;div class="pb-bd"&gt
+		&lt;div class="pb-ct"&gt
+			&lt;div&gt好雨知时节， 当春乃发生。&lt;/div&gt
+		&lt;/div&gt
+		&lt;div class="pb-ft"&gt
+			&lt;a class="pb-btn pb-cl"&gt取消&lt;/a&gt&lt;a class="pb-btn pb-ok"&gt确定&lt;/a&gt
+		&lt;/div&gt
+	&lt;/div&gt
+&lt;/div&gt
+</pre>
+				</section>
+
+				<section id="purebox-options">
+					<div class="page-header">
+						<h4>2. 自定义样式</h4>
+					</div>
+					<table class="table table-bordered table-striped">
+					  <thead>
+					   <tr>
+						 <th style="width: 100px;">类名</th>
+						 <th>描述</th>
+					   </tr>
+					  </thead>
+					  <tbody>
+					   <tr>
+						 <td><code>.pb{}</code></td>
+						 <td>弹出层DIV外框架，可以定义边框、背景、字体等，配合CSS3可以设置圆角边框、阴影等</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb .pb-hd {}</code></td>
+						 <td>标题栏样式</td>
+					   </tr>
+
+					   <tr>
+						 <td><code>.pb .pb-x {}</code></td>
+						 <td>关闭按钮样式，<code>本例中没有使用任何图片</code>，如果你想改变关闭按钮风格，可以自定义。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb .pb-x:hover {}</code></td>
+						 <td>关闭按钮样式鼠标经过样式。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb .pb-bd {}</code></td>
+						 <td>内容区+按钮栏样式，基本保持不变即可。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb .pb-ct {}</code></td>
+						 <td>内容区样式。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb .pb-ft {}</code></td>
+						 <td>按钮栏样式。</td>
+					   </tr>
+
+					   <tr>
+						 <td><code>.pb a.pb-btn {}</code></td>
+						 <td>按钮样式。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb a.pb-ok {}</code></td>
+						 <td>确定按钮样式。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb a.pb-ok:hover {}</code></td>
+						 <td>确定按钮鼠标经过样式。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb a.pb-cl {}</code></td>
+						 <td>取消按钮样式。</td>
+					   </tr>
+					   <tr>
+						 <td><code>.pb a.pb-cl:hover {}</code></td>
+						 <td>取消按钮鼠标经过样式。</td>
+					   </tr>
+					  </tbody>
+					</table>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			Designed and build by <a href="https://github.com/tianshaojie" target="_blank">@tianshaojie</a>
+			<p><a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a></p>
+		</div>
+	</footer>
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-transition.js"></script>
+	<script src="js/bootstrap-alert.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-dropdown.js"></script>
+	<script src="js/bootstrap-scrollspy.js"></script>
+	<script src="js/bootstrap-tab.js"></script>
+	<script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/bootstrap-popover.js"></script>
+	<script src="js/bootstrap-button.js"></script>
+	<script src="js/bootstrap-collapse.js"></script>
+	<script src="js/bootstrap-carousel.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
+	<script src="js/bootstrap-affix.js"></script>
+	<script src="js/holder/holder.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/application.js"></script>
+	
+	<script src="js/jquery.purebox.js"></script>
+	<script src="js/jquery.resizable.js"></script>
+</body>
+</html>

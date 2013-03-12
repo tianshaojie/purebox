@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>purebox</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content=""><!-- Le styles -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/docs.css" rel="stylesheet">
+	<link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="css/purebox-metro.css" rel="stylesheet" id="skin">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> <!-- Le fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span><span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="index.html">purebox</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="example.html">Examples</a></li>
+						<li class=""><a href="api.html">API</a></li>
+						<li class=""><a href="skin.html">Skin</a></li>
+						<li class=""><a href="about.html">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container"><!-- Docs nav -->
+		<div class="row">
+			<div class="span3 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav">
+					<li><a href="#purebox-invoke"><i class="icon-chevron-right"></i>1. 调用方式</a></li>
+					<li><a href="#purebox-fixed"><i class="icon-chevron-right"></i>2. 静止定位</a></li>
+					<li><a href="#purebox-head-foot"><i class="icon-chevron-right"></i>3. 自定义标题栏，按钮栏</a></li>
+					<li><a href="#purebox-btn-callback"><i class="icon-chevron-right"></i>4. 按钮回调事件</a></li>
+					<li><a href="#purebox-alert-confirm"><i class="icon-chevron-right"></i>5. 提示框和确认框</a></li>
+					<li><a href="#purebox-resize"><i class="icon-chevron-right"></i>6. 是否可以调节尺寸</a></li>
+					<li><a href="#purebox-drag"><i class="icon-chevron-right"></i>7. 是否拖拽</a></li>
+					<li><a href="#purebox-mask"><i class="icon-chevron-right"></i>8. 是否遮罩显示</a></li>
+				</ul>
+			</div>
+
+			<div class="span9"><!-- Download -->
+				<section id="purebox-invoke">
+					<div class="page-header">
+						<h4>1. 简单调用，两种方式，工具集或者包装集</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox">简单调用</a>
+					</div>
+<pre class="prettyprint linenums">
+/*jQuery工具集调用方式*/
+​$('#purebox').click(function() {
+	$.pb({
+		id : 'purebox',
+		title : '标题',
+		content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。'
+	});
+});
+
+/*jQuery包装集调用方式*/
+​$('#purebox').pb({
+	id : 'purebox',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。'
+});
+</pre>
+				</section>
+
+				<section id="purebox-fixed">
+					<div class="page-header">
+						<h4>2. 是否静止定位</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-fixed-true">静止定位</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-fixed-true').pb({
+	id : 'idialog',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+	fixed : true
+});
+</pre>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-fixed-false">跟随页面</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-fixed-false').pb({
+	id : 'idialog',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+	fixed:false
+});
+</pre>
+				</section>
+
+				<section id="purebox-head-foot">
+					<div class="page-header">
+						<h4>3. 自定义标题栏，按钮栏，按钮</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-no-head">不显示标题栏</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-no-head').pb({
+	id : 'purebox-no-head',
+	title : 'purebox-no-head',
+	head : false,
+	content : $('#show')
+});
+</pre>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-no-xbtn">不显示关闭按钮</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-no-xbtn').pb({
+	id : 'purebox-no-xbtn',
+	title : 'purebox-no-xbtn',
+	xBtn : false,
+	content : $('#show')
+});
+</pre>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-no-foot">不显示按钮栏</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-no-foot').pb({
+	id : 'purebox-no-foot',
+	title : 'purebox-no-foot',
+	foot : false,
+	content : $('#show')
+});
+</pre>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-no-cancelBtn">不显示取消按钮</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-no-cancelBtn').pb({
+	id : 'purebox-no-foot',
+	title : 'purebox-no-foot',
+	cBtn : false,
+	content : $('#show')
+});
+</pre>
+				</section>
+
+				<section id="purebox-btn-callback">
+					<div class="page-header">
+						<h4>4. 按钮回调事件</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-onClose">关闭按钮回调事件</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-onClose').pb({
+	id : 'purebox-onClose',
+	title : 'purebox-onClose',
+	content : $('#show'),
+	onClose : onClose
+});
+function onClose() {
+	alert('close');
+}
+</pre>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-onOk">确定按钮回调事件</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-onOk').pb({
+	id : 'purebox-onOk',
+	title : 'purebox-onOk',
+	content : $('#show'),
+	onOk : onOk
+});
+function onOk() {
+	alert('ok');
+}
+</pre>
+
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-onCancel">取消按钮回调事件</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-onCancel').pb({
+	id : 'purebox-onCancel',
+	title : 'purebox-onCancel',
+	content : $('#show'),
+	onCancel : onCancel
+});
+function onCancel() {
+	alert('cancel');
+}
+</pre>
+				</section>
+
+				<section id="purebox-alert-confirm">
+					<div class="page-header">
+						<h4>5. 提示框和确认框</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-alert">提示框</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-alert').click(function() {
+	$.pb.alert("好雨知时节， 当春乃发生。<br>随风潜入夜， 润物细无声。", function() {
+		alert("alert");
+	});
+});
+</pre>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-confirm">确认框</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-confirm').click(function() {
+	$.pb.confirm("好雨知时节， 当春乃发生。", function() {
+		alert("confirmed");
+	});
+});
+</pre>
+				</section>
+
+				<section id="purebox-resize">
+					<div class="page-header">
+						<h4>6. 是否可以调节尺寸</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-resize-true">可以调整尺寸</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-resize-true').pb({
+	id : 'purebox-resize-true',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+	resize : true
+});
+</pre>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-resize-false">不能调整尺寸</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-resize-false').pb({
+	id : 'purebox-resize-false',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+	resize : false
+});
+</pre>
+				</section>
+
+				<section id="purebox-drag">
+					<div class="page-header">
+						<h4>7. 是否拖拽</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-drag-true">支持拖拽</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-drag-true').pb({
+	id : 'purebox-drag-true',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+	drag : true
+});
+</pre>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-drag-false">不能拖拽</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-drag-false').pb({
+	id : 'purebox-drag-false',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+	drag : false
+});
+</pre>
+				</section>
+
+				<section id="purebox-mask">
+					<div class="page-header">
+						<h4>8. 是否遮罩显示</h4>
+					</div>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-mask-true">显示遮罩</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-mask-true').pb({
+	id : 'purebox-mask-true',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+	mask : true
+});
+</pre>
+					<div class="bs-docs-example" style="padding-bottom: 24px;">
+						<a class="btn btn-primary" data-toggle="modal" id="purebox-mask-false">不显示遮罩</a>
+					</div>
+<pre class="prettyprint linenums">
+$('#purebox-mask-false').pb({
+	id : 'purebox-mask-false',
+	title : '标题',
+	content : '好雨知时节， 当春乃发生。随风潜入夜， 润物细无声。',
+	mask : false
+});
+</pre>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			Designed and build by <a href="https://github.com/tianshaojie" target="_blank">@tianshaojie</a>
+			<p><a href="http://www.cnblogs.com/purediy/" target="_blank">Blog on cnblogs</a></p>
+		</div>
+	</footer>
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap-transition.js"></script>
+	<script src="js/bootstrap-alert.js"></script>
+	<script src="js/bootstrap-modal.js"></script>
+	<script src="js/bootstrap-dropdown.js"></script>
+	<script src="js/bootstrap-scrollspy.js"></script>
+	<script src="js/bootstrap-tab.js"></script>
+	<script src="js/bootstrap-tooltip.js"></script>
+	<script src="js/bootstrap-popover.js"></script>
+	<script src="js/bootstrap-button.js"></script>
+	<script src="js/bootstrap-collapse.js"></script>
+	<script src="js/bootstrap-carousel.js"></script>
+	<script src="js/bootstrap-typeahead.js"></script>
+	<script src="js/bootstrap-affix.js"></script>
+	<script src="js/holder/holder.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/application.js"></script>
+	
+	<script src="js/jquery.purebox.js"></script>
+	<script src="js/jquery.resizable.js"></script>
+</body>
+</html>
