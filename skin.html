@@ -32,7 +32,7 @@
 	z-index: 2209;
 	left: 50px; 
 	top: 40px; 
-	width: 285px;
+	width: 300px;
 	font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";
     font-size: 13px;
 	color: #515151;
@@ -150,7 +150,7 @@
 					</div>
 					
 					<div class="bs-docs-example" style="padding-bottom: 24px;">
-						<div class="pb" style="position:static">
+						<div class="pb" style="position:static; display: inline-block;">
 							<div class="pb-hd">
 								<a class="pb-x">&#10005</a><span>标题</span>
 							</div>
@@ -159,11 +159,10 @@
 									<div style="text-align:center;padding: 20px 10px 0;">好雨知时节， 当春乃发生。<br>随风潜入夜， 润物细无声。</div>
 								</div>
 								<div class="pb-ft">
-									<a class="pb-btn pb-cl">取消</a><a class="pb-btn pb-ok">确定</a>
+									<a class="pb-btn pb-cl">取消</a><a class="pb-btn pb-ok">我可以换肤</a>
 								</div>
 							</div>
 						</div>
-						<br>
 						<div class="pb-fb" style="position:static; display:inline-block;">
 							<div class="pb-hd">
 								<a class="pb-x">&#10005</a><span>标题</span>
@@ -293,5 +292,15 @@
 	
 	<script src="js/jquery.purebox.js"></script>
 	<script src="js/jquery.resizable.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.pb .pb-ok').click(function() {
+				var skin = $('#skin').attr('href');
+				skin == "css/purebox-metro.css" ? 
+				$('#skin').attr('href', 'css/purebox-facebook.css'):
+				$('#skin').attr('href', 'css/purebox-metro.css');
+			});
+		});
+	</script>
 </body>
 </html>
